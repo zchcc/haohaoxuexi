@@ -2,7 +2,7 @@
 // @name         haohaoxuexi
 // @namespace    http://tampermonkey.net/
 // @version      1.0.0
-// @updateURL    xxx
+// @updateURL    https://raw.githubusercontent.com/zchcc/haohaoxuexi/main/haohaoxuexi.js
 // @description  haohaoxuexi
 // @author       qike
 // @match        https://*.cn/videos/detail/*
