@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         haohaoxuexi
 // @namespace    http://tampermonkey.net/
-// @version      1.0.0
+// @version      1.0.1
 // @updateURL    https://raw.githubusercontent.com/zchcc/haohaoxuexi/main/haohaoxuexi.js
 // @description  haohaoxuexi
 // @author       qike
@@ -22,7 +22,7 @@
     const doc = unsafeWindow.document
     const platform = 'bc1f55f482a2df2bede07c661806c4eb'
     const vcCheckInterval = 0;
-    const uid = 'abc'
+    const uid = '000'
     const playerWatchInterval = 5000;
     // verify
     if(!doc.querySelector('#__nuxt')){
