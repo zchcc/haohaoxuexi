@@ -3,7 +3,8 @@
 // @namespace    http://tampermonkey.net/
 // @version      1.0.1
 // @updateURL    https://raw.githubusercontent.com/zchcc/haohaoxuexi/main/haohaoxuexi.js
-// @description  haohaoxuexi
+// @description  好好学习
+// @license      MIT
 // @author       qike
 // @match        https://*.cn/videos/detail/*
 // @grant        unsafeWindow
