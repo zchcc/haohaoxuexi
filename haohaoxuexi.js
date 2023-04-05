@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         haohaoxuexi
 // @namespace    http://tampermonkey.net/
-// @version      1.0.1
+// @version      1.0.2
 // @updateURL    https://raw.githubusercontent.com/zchcc/haohaoxuexi/main/haohaoxuexi.js
 // @description  好好学习
 // @license      MIT
@@ -200,7 +200,7 @@
     }
     vlc.putCache = function(id, vc){
         const key = `${uid}-vl-${id}`
-        const value = JSON.stringfy(vc)
+        const value = JSON.stringify(vc)
         localStorage.setItem(key, value)
     }
     vlc.setNextVideoLesson = function(vl){
