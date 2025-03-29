@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         haohaoxuexi
 // @namespace    http://tampermonkey.net/
-// @version      1.0.2
+// @version      1.1.0
 // @updateURL    https://raw.githubusercontent.com/zchcc/haohaoxuexi/main/haohaoxuexi.js
 // @description  好好学习
 // @license      MIT
@@ -124,6 +124,11 @@
         let wi = setInterval(async()=>{
             // if done
             if(player.isPlayDone()){
+                // 有当前课程内没看完的视频，先看完
+                if (vlc.findNextVideoInLession()){
+                    return;
+                }
+                // 当前课程里的视频都看完了，下个课程
                 logger.success('本课程学习已完成')
                 clearInterval(wi)
                 let next = await vlc.getNext()
@@ -212,6 +217,25 @@
         const matches = location.href.match(/\/([\w\d]{32})\?/)
         return matches[1] 
     }
+    vlc.findNextVideoInLession = function() {
+        const videoDOMS = doc.querySelectorAll(".scroll-set ul li .set-content")
+        for (var i = 0; i < videoDOMS.length; i++) {
+            const dom = videoDOMS[i]
+            // 跳过已看100%的视频
+            if(dom.innerText.includes("100%")){
+                continue
+            }
+            // 跳过当前视频，避免bug
+            if(dom.classList.contains("active")){
+                continue
+            }
+            // 找到未看100%的视频
+            logger.info(`下一个视频可以看: ${dom.querySelector(".set-title").innerText}`)
+            dom.click()
+            return true
+        }
+        return false
+    }
     vlc.findNext = async function(){
         logger.info("开始查找下一个课程...")
         let pageNo = 1
@@ -222,7 +246,7 @@
                 let vlid = vlItem.uuid
                 let vl = vlc.getCache(vlid)
                 if(!vl){
-                    vl = await vlc.get(vlid)
+                    vl = await vlc.get(vlid, vlItem.type)
                 }
                 if(!vl){
                     logger.err(`获取不到vl(id=${vlid})`)
