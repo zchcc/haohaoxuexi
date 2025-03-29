@@ -1,8 +1,9 @@
 // ==UserScript==
 // @name         haohaoxuexi
 // @namespace    http://tampermonkey.net/
-// @version      1.1.0
+// @version      1.1.1
 // @updateURL    https://raw.githubusercontent.com/zchcc/haohaoxuexi/main/haohaoxuexi.js
+// @downloadURL  https://raw.githubusercontent.com/zchcc/haohaoxuexi/main/haohaoxuexi.js
 // @description  好好学习
 // @license      MIT
 // @author       qike
